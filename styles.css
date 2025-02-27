@@ -1,6 +1,7 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: black;
+  color: aliceblue;
 }
 
 .container {
@@ -10,13 +11,22 @@ body {
 
 #quote {
   font-size: 24px;
+  font-style: italic;
   margin: 20px 0;
-  color: #333;
+  color: aliceblue;
 }
 
-button {
+.quote::before {
+  content: '“'; /* Левая кавычка */
+}
+
+.quote::after {
+  content: '”'; /* Правая кавычка */
+}
+
+.btn {
   padding: 10px 20px;
-  font-size: 20px;
+  font-size: 30px;
   cursor: pointer;
   background-color: blue;
   color: white;
@@ -24,6 +34,12 @@ button {
   border-radius: 10px;
 }
 
-button:hover {
-  background-color: cyan;
+.btn:hover {
+  background-color: rgb(83, 83, 235);
+}
+
+.quote-author {
+  margin-top: 10px; /* или любое другое значение */
+  display: block;
+  font-size: 24px;
 }
