@@ -1,4 +1,9 @@
-import quotes from './quotes.js';
+import quotes from './src/quotes.js';
+import {
+  hideFavouriteCard,
+  showFavouriteCard,
+  toggleFavouriteIcon,
+} from './src/favouritesHandlers.js';
 
 const generateBtn = document.getElementById('generate-btn');
 const quoteAuthorElement = document.getElementById('quote-author');
@@ -14,34 +19,28 @@ function generateRandomQuote() {
   const { quote, author } = randomQuote;
   quoteElement.textContent = quote;
   quoteAuthorElement.textContent = author;
-  toggleFavouriteBtn.textContent = randomQuote.isFavourite
-    ? 'Remove from favourites'
-    : 'Add to favourites';
+  toggleFavouriteIcon(randomQuote.isFavourite, toggleFavouriteBtn);
+
   toggleFavouriteBtn.style.display = 'inline-block';
 }
 
 function toggleFavourite() {
   const currentQuote = quotes[currentQuoteIndex];
   currentQuote.isFavourite = !currentQuote.isFavourite;
-  toggleFavouriteBtn.textContent = currentQuote.isFavourite
-    ? 'Remove from favourites'
-    : 'Add to favourites';
+  toggleFavouriteIcon(currentQuote.isFavourite, toggleFavouriteBtn);
+
   if (currentQuote.isFavourite) {
-    const favouriteCard = document.createElement('div');
-    favouriteCard.classList.add('favourite-card');
-    favouriteCard.innerHTML = `
-      <p>${currentQuote.quote}</p>
-      <p class="author">${currentQuote.author}</p>`;
-    favouritesContainer.appendChild(favouriteCard);
+    showFavouriteCard(
+      currentQuote.quote,
+      currentQuote.author,
+      favouritesContainer
+    );
   } else {
-    const favouriteCards = document.querySelectorAll('.favourite-card');
-    favouriteCards.forEach((card) => {
-      if (card.textContent.includes(currentQuote.quote)) {
-        card.remove();
-      }
-    });
+    hideFavouriteCard(currentQuote.quote);
   }
 }
 
 generateBtn.addEventListener('click', generateRandomQuote);
 toggleFavouriteBtn.addEventListener('click', toggleFavourite);
+
+generateRandomQuote();
