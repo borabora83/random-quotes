@@ -63,10 +63,6 @@ body {
   font-style: italic;
 }
 
-#toggle-favourite-btn {
-  display: none;
-}
-
 .star-icon {
   font-size: 35px;
   cursor: pointer;
