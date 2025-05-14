@@ -26,14 +26,6 @@ body {
   margin-block-start: 0.5em;
 }
 
-.quote-text::before {
-  content: '“'; /* Левая кавычка */
-}
-
-.quote-text::after {
-  content: '”'; /* Правая кавычка */
-}
-
 .btn {
   padding: 10px 20px;
   font-size: 16px;
