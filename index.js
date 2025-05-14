@@ -12,15 +12,15 @@ function setCurrentQuote(quote) {
 }
 
 const favouritesContainer = document.getElementById('favourites-container');
-const favouriteBtn = document.getElementById('favourite-btn');
-favouriteBtn.addEventListener('click', () =>
-  toggleFavourite(currentQuote, favouriteBtn, favouritesContainer)
+const quoteFavouriteBtn = document.getElementById('quote-favourite-btn');
+quoteFavouriteBtn.addEventListener('click', () =>
+  toggleFavourite(currentQuote, quoteFavouriteBtn, favouritesContainer)
 );
 
-hideFavouriteBtn(favouriteBtn);
+hideFavouriteBtn();
 
 const generateBtn = document.getElementById('generate-btn');
 generateBtn.addEventListener('click', () =>
   handleQuote(quotes, setCurrentQuote)
 );
-export { favouriteBtn };
+export { quoteFavouriteBtn };

@@ -13,11 +13,17 @@
   <body>
     <div class="container">
       <h1>Random Quotes</h1>
-      <p id="quote" class="quote">Clich the button to get a random quote</p>
-      <p id="quote-author" class="quote-author"></p>
+      <div id="quote" class="'quote">
+        <p id="quote-text" class="quote-text">
+          Clich the button to get a random quote
+        </p>
+        <p id="quote-author" class="quote-author"></p>
 
-      <button id="generate-btn" class="btn">Generate qoute</button>
-      <i id="favourite-btn" class="far fa-star star-icon"></i>
+        <button id="generate-btn" class="btn btn-primary">
+          Generate quote
+        </button>
+        <i id="quote-favourite-btn" class="far fa-star star-icon"></i>
+      </div>
     </div>
     <div id="favourites-container" class="favourites-container">
       <!-- Favourites quotes wil be dinamically added here -->
